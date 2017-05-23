@@ -22,15 +22,24 @@ export class HomePage {
     });
   }
 
-  onDeviceSupported  = () => {
+  onDeviceSupported = () => {
     console.log('device supported');
+    this.launchEarth();
+  }
+
+  launchWorld() {
     this.wikitudePlugin.loadARchitectWorld(
-            this.onARExperienceLoadedSuccessful,
-            this.onARExperienceLoadError,
-            this.arExperienceUrl,
-            this.requiredFeatures,
-            this.startupConfiguration
-        );
+      this.onARExperienceLoadedSuccessful,
+      this.onARExperienceLoadError,
+      this.arExperienceUrl,
+      this.requiredFeatures,
+      this.startupConfiguration
+    );
+  }
+
+  launchEarth() {
+    this.arExperienceUrl = "www/assets/experience/world/earth/index.html";
+    this.launchWorld();
   }
 
   onDeviceNotSupported () {
@@ -44,4 +53,6 @@ export class HomePage {
   onARExperienceLoadedSuccessful () {
     console.log('good load')
   }
+
+
 }
